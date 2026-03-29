@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/claude-demo-site/clientlibs"/>
+    <filter root="/apps/claude-demo-site/components"/>
+    <filter root="/apps/claude-demo-site/i18n"/>
+</workspaceFilter>

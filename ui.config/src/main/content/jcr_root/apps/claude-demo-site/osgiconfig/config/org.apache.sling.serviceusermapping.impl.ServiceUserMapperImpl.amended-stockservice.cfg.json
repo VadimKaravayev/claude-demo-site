@@ -1,0 +1,5 @@
+{
+    "user.mapping": [
+        "claude-demo-site.core:stock-service=stock-service-user"
+    ]
+}

@@ -2,6 +2,8 @@
     "scripts": [
         "create path (sling:OrderedFolder) /content/dam/claude-demo-site",
         "create path (nt:unstructured) /content/dam/claude-demo-site/jcr:content",
-        "set properties on /content/dam/claude-demo-site/jcr:content\n  set cq:conf{String} to /conf/claude-demo-site\n  set jcr:title{String} to \"Claude Demo Site\"\nend"
+        "set properties on /content/dam/claude-demo-site/jcr:content\n  set cq:conf{String} to /conf/claude-demo-site\n  set jcr:title{String} to \"Claude Demo Site\"\nend",
+        "create service user stock-service-user with path system/claude-demo-site",
+        "set ACL for stock-service-user\n  allow jcr:read on /content/claude-demo-site\n  allow jcr:read on home(stock-service-user)\nend"
     ]
 }

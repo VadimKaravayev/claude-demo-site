@@ -1,0 +1,16 @@
+<sly data-sly-use.model="com.claude.demo.core.models.StockQuoteModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"/>
+<sly data-sly-test.hasContent="${model.hasContent}"/>
+<div class="cmp-stockquote" data-cmp-is="stockquote"
+     data-sly-test="${hasContent}"
+     data-sly-unwrap="false">
+    <h3 class="cmp-stockquote__symbol">${model.quote.symbol}</h3>
+    <p class="cmp-stockquote__price">Price: $${model.quote.price}</p>
+    <p class="cmp-stockquote__change">Change: ${model.quote.change} (${model.quote.changePercent}%)</p>
+    <p class="cmp-stockquote__timestamp">As of: ${model.quote.timestamp}</p>
+</div>
+<div class="cmp-stockquote cmp-stockquote--error"
+     data-sly-test="${!hasContent && model.errorMessage}">
+    <p class="cmp-stockquote__error">${model.errorMessage}</p>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent && !model.errorMessage, classAppend='cmp-stockquote'}"></sly>

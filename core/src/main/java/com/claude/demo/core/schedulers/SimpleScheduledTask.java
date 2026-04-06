@@ -15,13 +15,12 @@
  */
 package com.claude.demo.core.schedulers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * A simple demo for cron-job like tasks that get executed regularly.
@@ -30,6 +29,7 @@ import org.slf4j.LoggerFactory;
  */
 @Designate(ocd=SimpleScheduledTask.Config.class)
 @Component(service=Runnable.class)
+@Slf4j
 public class SimpleScheduledTask implements Runnable {
 
     @ObjectClassDefinition(name="A scheduled task",
@@ -48,13 +48,11 @@ public class SimpleScheduledTask implements Runnable {
         String myParameter() default "";
     }
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
-
     private String myParameter;
     
     @Override
     public void run() {
-        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
+        log.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
     }
 
     @Activate

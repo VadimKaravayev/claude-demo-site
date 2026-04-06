@@ -1,0 +1,18 @@
+<sly data-sly-use.model="com.claude.demo.core.models.TeamMemberModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"/>
+<div class="cmp-teammember" data-cmp-is="teammember" data-sly-test.hasContent="${model.name}">
+    <div class="cmp-teammember__image" data-sly-test="${model.photo}">
+        <img class="cmp-teammember__photo" src="${model.photo}" alt="${model.name}"/>
+    </div>
+    <div class="cmp-teammember__info">
+        <h3 class="cmp-teammember__name">${model.name}</h3>
+        <p class="cmp-teammember__job-title" data-sly-test="${model.jobTitle}">${model.jobTitle}</p>
+        <p class="cmp-teammember__bio" data-sly-test="${model.bio}">${model.bio}</p>
+        <ul class="cmp-teammember__social-links" data-sly-test="${model.socialLinks.size > 0}" data-sly-list.link="${model.socialLinks}">
+            <li class="cmp-teammember__social-link">
+                <a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.socialMediaName}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent, classAppend='cmp-teammember'}"></sly>

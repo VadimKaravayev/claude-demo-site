@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Interactive Rating"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <ratingForm
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Rating Form"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title"
+                                fieldDescription="Heading displayed above the rating buttons"
+                                name="./title"
+                                value="How did we do?"/>
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Description"
+                                fieldDescription="Supporting text below the title"
+                                name="./description"
+                                value="Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!"/>
+                            <maxRating
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                fieldLabel="Max Rating"
+                                fieldDescription="Number of rating options (1-10)"
+                                name="./maxRating"
+                                min="{Long}1"
+                                max="{Long}10"
+                                step="{Long}1"
+                                value="{Long}5"/>
+                            <starIconPath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Star Icon"
+                                fieldDescription="Path to the star icon in DAM"
+                                name="./starIconPath"
+                                rootPath="/content/dam"/>
+                        </items>
+                    </ratingForm>
+                    <thankYou
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Thank You"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <thankYouTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title"
+                                fieldDescription="Heading on the thank-you screen"
+                                name="./thankYouTitle"
+                                value="Thank you!"/>
+                            <thankYouMessage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Message"
+                                fieldDescription="Body text on the thank-you screen"
+                                name="./thankYouMessage"
+                                value="We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"/>
+                            <thankYouIllustrationPath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Illustration"
+                                fieldDescription="Path to the thank-you illustration in DAM"
+                                name="./thankYouIllustrationPath"
+                                rootPath="/content/dam"/>
+                        </items>
+                    </thankYou>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

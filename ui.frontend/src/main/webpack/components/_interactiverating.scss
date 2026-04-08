@@ -1,0 +1,120 @@
+.cmp-interactiverating {
+    background: #232a34;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 412px;
+    margin: 0 auto;
+
+    &__star-badge {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #2d3544;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+
+    &__star-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    &__title {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 12px;
+    }
+
+    &__description {
+        color: #969fad;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0 0 24px;
+    }
+
+    &__ratings {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__rating-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: #2d3544;
+        color: #969fad;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover {
+            background: #4a5567;
+            color: #ffffff;
+        }
+
+        &--active {
+            background: #fb7413;
+            color: #ffffff;
+        }
+    }
+
+    &__submit {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 24px;
+        background: #fb7413;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover {
+            background: #ffffff;
+            color: #fb7413;
+        }
+    }
+
+    &__thankyou {
+        text-align: center;
+    }
+
+    &__illustration {
+        max-width: 168px;
+        margin: 0 auto 24px;
+        display: block;
+    }
+
+    &__selected-badge {
+        display: inline-block;
+        background: #2d3544;
+        color: #fb7413;
+        padding: 6px 20px;
+        border-radius: 24px;
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    &__thankyou-title {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 12px;
+    }
+
+    &__thankyou-message {
+        color: #969fad;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+    }
+}

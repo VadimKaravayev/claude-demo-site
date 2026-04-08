@@ -1,0 +1,44 @@
+<sly data-sly-use.model="com.claude.demo.core.models.InteractiveRatingModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"/>
+<sly data-sly-test.hasContent="${model.hasContent}"/>
+
+<div class="cmp-interactiverating" data-cmp-is="interactiverating"
+     data-sly-test="${hasContent}"
+     data-submission-endpoint="${model.apiEndpointUrl}"
+     data-max-rating="${model.maxRating}">
+
+    <!-- Rating Form -->
+    <div class="cmp-interactiverating__form" data-cmp-hook-interactiverating="form">
+        <div class="cmp-interactiverating__star-badge" data-sly-test="${model.starIconPath}">
+            <img class="cmp-interactiverating__star-icon"
+                 src="${model.starIconPath}" alt=""/>
+        </div>
+        <h2 class="cmp-interactiverating__title">${model.title}</h2>
+        <p class="cmp-interactiverating__description">${model.description}</p>
+        <div class="cmp-interactiverating__ratings">
+            <button data-sly-repeat="${model.ratingOptions}"
+                    class="cmp-interactiverating__rating-btn"
+                    data-cmp-hook-interactiverating="ratingBtn"
+                    data-rating="${item}"
+                    type="button">${item}</button>
+        </div>
+        <button class="cmp-interactiverating__submit"
+                data-cmp-hook-interactiverating="submit"
+                type="button">SUBMIT</button>
+    </div>
+
+    <!-- Thank You -->
+    <div class="cmp-interactiverating__thankyou" data-cmp-hook-interactiverating="thankyou"
+         style="display:none">
+        <img class="cmp-interactiverating__illustration"
+             data-sly-test="${model.thankYouIllustrationPath}"
+             src="${model.thankYouIllustrationPath}" alt=""/>
+        <div class="cmp-interactiverating__selected-badge">
+            You selected <span data-cmp-hook-interactiverating="selectedRating"></span> out of ${model.maxRating}
+        </div>
+        <h2 class="cmp-interactiverating__thankyou-title">${model.thankYouTitle}</h2>
+        <p class="cmp-interactiverating__thankyou-message">${model.thankYouMessage}</p>
+    </div>
+</div>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent, classAppend='cmp-interactiverating'}"></sly>
